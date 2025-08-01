@@ -1,0 +1,61 @@
+{
+    "theme": "Dracula",
+    "selectedAuthType": "gemini-api-key",
+    "preferredEditor": "vscode",
+    "maxSessionTurns": -1,
+    "mcpServers": {
+        "playwright": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "@playwright/mcp@latest"
+            ],
+            "gallery": true
+        },
+        "brainstormWithExperts": {
+            "type": "stdio",
+            "command": "uv",
+            "args": [
+                "run",
+                "fastmcp",
+                "run",
+                "main.py",
+                "--transport=stdio"
+            ],
+            "env": {
+                "GEMINI_API_KEY": "${GEMINI_API_KEY}",
+                "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+            },
+            "cwd": ".mcp/brainstorm_with_llms",
+            "gallery": true
+        },
+        "markitdown": {
+            "type": "stdio",
+            "command": "uvx",
+            "args": [
+                "markitdown-mcp"
+            ],
+            "gallery": true
+        },
+        "sequentialthinking": {
+            "type": "stdio",
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking@latest"
+            ],
+            "gallery": true
+        },
+        "mcp-obsidian": {
+            "command": "uvx",
+            "args": [
+                "mcp-obsidian"
+            ],
+            "env": {
+                "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}",
+                "OBSIDIAN_HOST": "${OBSIDIAN_HOST}",
+                "OBSIDIAN_PORT": "${OBSIDIAN_PORT}"
+            }
+        }
+    }
+}
